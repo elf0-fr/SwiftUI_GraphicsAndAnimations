@@ -51,43 +51,6 @@ extension AnyTransition {
     }
 }
 
-struct MatchGeometryEffect: View {
-    
-    @Namespace private var myAnimation
-    @State private var showText: Bool = false
-    
-    var body: some View {
-        VStack {
-            Button("Toggle animation") {
-                withAnimation {
-                    showText.toggle()
-                }
-            }
-            
-            HStack {
-                if (showText) {
-                    Text("Left Text")
-                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
-                }
-                
-                Spacer()
-                
-                if (!showText) {
-                    Text("Right Text")
-                        .matchedGeometryEffect(id: "TextAnimation", in: myAnimation)
-                }
-            }
-            .padding()
-            
-            Spacer()
-        }
-    }
-}
-
 #Preview {
     Transition()
-}
-
-#Preview("MatchGeometryEffect") {
-    MatchGeometryEffect()
 }
